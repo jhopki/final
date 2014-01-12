@@ -25,7 +25,6 @@
 <% @user.items.each do |i| %>
 <ul class="small-block-grid-3">
 	<li><b><%= i.name %>:</b> <%= i.description %>
-		<!-- <p>Created at: <%= i.display_date %></p> -->
 	</li>
 	<li><%= link_to image_tag( i.image.url ), user_item_path(@user, i) %></li>
 </ul>
