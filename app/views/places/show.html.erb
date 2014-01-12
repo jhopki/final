@@ -20,8 +20,9 @@
 	</ul>
 <% end %>
 
-<div id="map-canvas"></div>
+
 <% if @place.latitude %>
+	<div id="map-canvas"></div>
 	<%= javascript_tag do %>
 		var coords = <%= raw @nearby_places.map {|r| {latitude: r.latitude.to_f, longitude: r.longitude.to_f}}.to_json %>
 
