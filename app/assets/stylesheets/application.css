@@ -17,7 +17,7 @@ body {text-align:center; background-color: lavender !important;}
 table {border:1; background-color:#9966CC !important;}
 th{width:30%; background-color:#FFFFCC !important;}
 td {background-color:#FFFFCC !important}
-.3 {width:70%;}
+/*.3 {width:70%;}*/
 .form {
   margin: 0 auto;
   width:500px;
