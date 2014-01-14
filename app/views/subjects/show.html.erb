@@ -17,7 +17,11 @@
 		</tr>
 		<% @subject.comments.each do |x| %>
 			<tr>
-				<td><%= link_to x.user.username, user_path(x.user_id) %></br>
+				<td><% if current_user %>
+              <%= link_to x.user.username, user_path(x.user_id) %></br>
+            <% else %>
+              <%= link_to x.user.username, login_path %></br>
+            <% end %>
 				Joined: <%= display_date(x.user.created_at) %></td>
 				<td><%= x.note %>  <%= image_tag( x.photo.url ) %></td>
 				<td><%= display_date(x.created_at) %></td>
