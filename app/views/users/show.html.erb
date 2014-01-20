@@ -5,9 +5,9 @@
 	   <%= link_to "Back To Home", resources_url %></p>
 	<b>Your profile:</b>
 	<p>
-		<b>
+		
 		<%= @user.profile %>
-		</b>
+		
 	</p>
 	<b>Messages:</b>
 	<% @user.messages_received.each do |x| %>
@@ -20,11 +20,9 @@
 	<h1> <%= @user.username %> 's Profile</h1>
 	<p><%= link_to "See My Swaps", user_items_path(@user) %> |
 	<%= link_to "Back To Home", resources_url %></p>
-
-	<p>
-		<b>
+		
 			<%= @user.profile %>
-		</b>
+		
 	</p>
 <% end %>
 <% if current_user != @user %>
