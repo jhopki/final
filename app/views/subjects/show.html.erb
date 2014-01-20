@@ -17,17 +17,20 @@
 		</tr>
 		<% @subject.comments.each do |x| %>
 			<tr>
-				<td><%= link_to x.user.username, user_path(x.user_id) %></br>
+				<td><% if current_user %>
+              <%= link_to x.user.username, user_path(x.user_id) %></br>
+            <% else %>
+              <%= link_to x.user.username, login_path %></br>
+            <% end %>
 				Joined: <%= display_date(x.user.created_at) %></td>
 				<td><%= x.note %>  <%= image_tag( x.photo.url ) %></td>
 				<td><%= display_date(x.created_at) %></td>
 			</tr>
 		<% end %>	
 	</table>
-		
+
+<% if current_user %>		
 	<%= form_for [@subject.topic, @subject, @comment], :html => { :multipart => true} do |f| %>
-  				
-  					
        				
        				<div class="form">
   						<div class="row">
@@ -36,14 +39,16 @@
       							
       							<%= f.text_area :note %>
 
-
 								<%= f.submit %>
       						</div>
       					</div>
       				</div>
-
+  <% end %>
+<% else %>
+  <p>You must be logged in to post a comment. <%= link_to 'Login', login_path %></p>
+<% end %>
     
-	<% end %>
+	
 <% end %>
 
 

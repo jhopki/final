@@ -1,29 +1,27 @@
 <% if current_user == @user %>
-	<h1> Welcome <%= @user.username %> </h1>
-	<p><%= link_to "Edit My Profile", edit_user_path %> |
-		<%= link_to "See My Swaps", user_items_path(@user) %> |
-	   <%= link_to "Back To Home", resources_url %></p>
-	<b>Your profile:</b>
-	<p>
-		
-		<%= @user.profile %>
-		
-	</p>
-	<b>Messages:</b>
-	<% @user.messages_received.each do |x| %>
-			<p>To: <%= x.recipient.username %>, From: <%= x.user.username %></p>
-			<p><%= x.title %></p>
-			<p><%= x.content %></p>
-			
-	<% end %>
+        <h1> Welcome <%= @user.username %> </h1>
+        <p><%= link_to "Edit My Profile", edit_user_path %> |
+                <%= link_to "See My Swaps", user_items_path(@user) %> |
+           <%= link_to "Back To Home", resources_url %></p>
+        <b>Your profile:</b>
+        <p>
+                <%= @user.profile %>
+        </p>
+        <b>Messages:</b>
+        <% @user.messages_received.each do |x| %>
+                        <p>To: <%= x.recipient.username %>, From: <%= x.user.username %></p>
+                        <p><%= x.title %></p>
+                        <p><%= x.content %></p>
+                        
+        <% end %>
 <% else %>
-	<h1> <%= @user.username %> 's Profile</h1>
-	<p><%= link_to "See My Swaps", user_items_path(@user) %> |
-	<%= link_to "Back To Home", resources_url %></p>
-		
-			<%= @user.profile %>
-		
-	</p>
+        <h1> <%= @user.username %> 's Profile</h1>
+        <p><%= link_to "See My Swaps", user_items_path(@user) %> |
+        <%= link_to "Back To Home", resources_url %></p>
+
+        <p>
+                <%= @user.profile %>
+        </p>
 <% end %>
 <% if current_user != @user %>
 
@@ -31,40 +29,40 @@
 <div class="form">
   <div class="row">
       <div class="large-12 columns">
-			<%= form_for [@user, @message] do |f| %>
-			<% if @message.errors.any? %>
-				<div id="error_explanation">
-					<h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+                        <%= form_for [@user, @message] do |f| %>
+                        <% if @message.errors.any? %>
+                                <div id="error_explanation">
+                                        <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
 
-					<ul>
-						<% @message.errors.full_messages.each do |msg| %>
-							<li>
-									<%= msg %>
-								<% end %>
-							</li>
-					</ul>
-				</div>
-			<% end %>
-				<%= f.hidden_field :recipient_id %>
+                                        <ul>
+                                                <% @message.errors.full_messages.each do |msg| %>
+                                                        <li>
+                                                                        <%= msg %>
+                                                                <% end %>
+                                                        </li>
+                                        </ul>
+                                </div>
+                        <% end %>
+                                <%= f.hidden_field :recipient_id %>
 
-				<div class="field">
-					<%= f.label "Subject" %><br/>
-					<%= f.text_field :title %><br/>
-				</div>
-				<div class="field">
-					<%= f.label "Message" %><br/>
-					<%= f.text_area :content %><br/>
-				</div>
-				<p>From <%= current_user.username %></p>
-				<div class="actions">
-					<%= f.submit %>
-				</div>
-			<% end %>
-		</div>
-	</div>
+                                <div class="field">
+                                        <%= f.label "Subject" %><br/>
+                                        <%= f.text_field :title %><br/>
+                                </div>
+                                <div class="field">
+                                        <%= f.label "Message" %><br/>
+                                        <%= f.text_area :content %><br/>
+                                </div>
+                                <p>From <%= current_user.username %></p>
+                                <div class="actions">
+                                        <%= f.submit %>
+                                </div>
+                        <% end %>
+                </div>
+        </div>
 </div>
 <% elsif current_user == @user %>
-	<p></p>
+        <p></p>
 <% else %>
-	<p><%= link_to "Log In", login_path %> to trade with <%= @user.username %>.</p>
+        <p><%= link_to "Log In", login_path %> to trade with <%= @user.username %>.</p>
 <% end %>

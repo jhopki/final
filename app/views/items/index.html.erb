@@ -2,7 +2,11 @@
 <h1>My Clothing Swap</h1>
 <% else %>
 <h1><%= @user.username %> 's Clothing to Swap</h1>
-<ul>Contact: <%= link_to @user.username, user_path(@user) %></ul>
+  <% if current_user %>
+    <ul>Contact: <%= link_to @user.username, user_path(@user) %></ul>
+  <% else %>
+    <ul>Contact: <%= link_to @user.username, login_path %></ul>
+  <% end %>
 <% end %>
 
 <% if current_user == @user %>
