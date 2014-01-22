@@ -24,7 +24,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   def store_dir
     # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     # 'public/transresourcestoronto'
-    'https://transresourcestoronto.s3.amazonaws.com/users'
+    'https://transresourcestoronto.s3.amazonaws.com/users/#{user.id}/items'
   end
 
   def extension_white_list
