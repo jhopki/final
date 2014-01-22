@@ -37,9 +37,12 @@ gem 'mini_magick'
 
 gem 'mime-types'
 
+gem 'fog'
+
 gem 'foundation-rails'
 
 gem 'geocoder'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
