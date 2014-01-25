@@ -17,12 +17,26 @@ body {text-align:center; background-color: lavender !important;}
 table {border:1; background-color:#9966CC !important;}
 th{width:30%; background-color:#FFFFCC !important;}
 td {background-color:#FFFFCC !important}
+div.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
+}
 /*.3 {width:70%;}*/
 .form {
   margin: 0 auto;
   width:500px;
 }
 
+div.foo
+{
+position:relative;
+top: 10px;
+left: 50px;
+right: 50px;
+text-align:left;
+
+}
 
 #tag_cloud {
   width: 300px;
